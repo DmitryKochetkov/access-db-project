@@ -61,13 +61,30 @@ namespace CourseProject
 
                 for (int i = 0; i < dataGridView1.ColumnCount; i++)
                 {
-                    if (dataGridView1.Columns[i].Name != "Шифр покупателя")
+                    if (dataGridView1.Columns[i].Name != "Шифр покупателя" && dataGridView1.Columns[i].Name != "Код товара")
                     {
                         dataGridView1.Columns.RemoveAt(i);
                         i--;
                     }
                 }
 
+                HashSet<object> customers = new HashSet<object>();
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++) //TODO: Fix Bug
+                {
+                    if (!customers.Contains(dataGridView1.Rows[i].Cells[1].Value))
+                    {
+                        if (!(database1DataSet1.Таблица2.FindByКод_товара((int)dataGridView1.Rows[i].Cells[0].Value) == null))
+                        {
+                            if (database1DataSet1.Таблица2.FindByКод_товара((int)dataGridView1.Rows[i].Cells[0].Value).Наценка > 0)
+                            customers.Add(dataGridView1.Rows[i].Cells[1].Value);
+                        }
+                    }
+                    else
+                    {
+                        dataGridView1.Rows.RemoveAt(i);
+                        i--;
+                    }
+                }
             }
         }
     }
