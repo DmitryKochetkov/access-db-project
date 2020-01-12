@@ -55,7 +55,39 @@ namespace CourseProject
             }
             else if (radioButton_Program.Checked)
             {
+                Database1DataSetTableAdapters.Таблица1TableAdapter adapter = new Database1DataSetTableAdapters.Таблица1TableAdapter();
+                adapter.Fill(database1DataSet1.Таблица1);
+                dataGridView1.DataSource = adapter.GetData();
 
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    if (dataGridView1.Columns[i].Name != "Шифр покупателя" && dataGridView1.Columns[i].Name != "Дата оплаты")
+                    {
+                        dataGridView1.Columns.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                HashSet<object> customers = new HashSet<object>();
+
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value.ToString().Contains(dateTimePicker1.Value.ToShortDateString())) //TODO: check time
+                    {
+                        if (customers.Contains(dataGridView1.Rows[i].Cells[0].Value))
+                        {
+                            dataGridView1.Rows.RemoveAt(i);
+                            i--;
+                        }
+                        else
+                        customers.Add(dataGridView1.Rows[i].Cells[0].Value);
+                    }
+                    else
+                    {
+                        dataGridView1.Rows.RemoveAt(i);
+                        i--;
+                    }
+                }
             }
         }
     }

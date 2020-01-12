@@ -21,7 +21,6 @@ namespace CourseProject
         {
             // TODO: This line of code loads data into the 'database1DataSet.Таблица1' table. You can move, or remove it, as needed.
             this.таблица1TableAdapter.Fill(this.database1DataSet.Таблица1);
-
         }
     }
 }

@@ -55,6 +55,18 @@ namespace CourseProject
             }
             else if (radioButton_Program.Checked)
             {
+                Database1DataSetTableAdapters.Таблица1TableAdapter adapter = new Database1DataSetTableAdapters.Таблица1TableAdapter();
+                adapter.Fill(database1DataSet1.Таблица1);
+                dataGridView1.DataSource = adapter.GetData();
+
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    if (dataGridView1.Columns[i].Name != "Шифр покупателя")
+                    {
+                        dataGridView1.Columns.RemoveAt(i);
+                        i--;
+                    }
+                }
 
             }
         }

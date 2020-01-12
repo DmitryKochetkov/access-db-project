@@ -35,7 +35,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.radioButton_SQL = new System.Windows.Forms.RadioButton();
             this.radioButton_Program = new System.Windows.Forms.RadioButton();
+            this.database1DataSet1 = new CourseProject.Database1DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -103,6 +105,11 @@
             this.radioButton_Program.Text = "Программно";
             this.radioButton_Program.UseVisualStyleBackColor = true;
             // 
+            // database1DataSet1
+            // 
+            this.database1DataSet1.DataSetName = "Database1DataSet";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Form_CustomersByDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +125,7 @@
             this.Name = "Form_CustomersByDate";
             this.Text = "Покупатели на заданную дату";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +140,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioButton_SQL;
         private System.Windows.Forms.RadioButton radioButton_Program;
+        private Database1DataSet database1DataSet1;
     }
 }
