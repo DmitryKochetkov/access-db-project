@@ -36,7 +36,6 @@ namespace CourseProject
                     connection.Open();
                     OleDbCommand cmd = connection.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    //cmd.CommandText = "SELECT Таблица1.[Код товара], [Шифр покупателя], Наценка FROM Таблица1 INNER JOIN Таблица2 ON Таблица1.[Код Товара] = Таблица2.[Код Товара] WHERE Наценка > 0";
                     cmd.CommandText = "SELECT DISTINCT [Шифр покупателя] FROM Таблица1 INNER JOIN Таблица2 ON Таблица1.[Код Товара] = Таблица2.[Код Товара] WHERE Наценка > 0";
                     cmd.ExecuteNonQuery();
 
@@ -97,7 +96,6 @@ namespace CourseProject
                 }
 
                 dataGridView1.Columns.RemoveAt(0);
-                //dataGridView1.DataSource = customers;
             }
         }
     }

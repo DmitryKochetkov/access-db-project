@@ -36,14 +36,20 @@ namespace CourseProject
                     connection.Open();
                     OleDbCommand cmd = connection.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    //cmd.CommandText = "SELECT Таблица1.[Код товара], [Шифр покупателя], Наценка FROM Таблица1 INNER JOIN Таблица2 ON Таблица1.[Код Товара] = Таблица2.[Код Товара] WHERE Наценка > 0";
-                    cmd.CommandText = "SELECT [Наименование товара], [Скидка] FROM Таблица2";
+                    //cmd.CommandText = "SELECT * FROM (SELECT [Наименование товара], [Скидка] FROM Таблица2 GROUP BY [Скидка], [Наименование товара] ORDER BY [Скидка], [Наименование товара]) PIVOT (COUNT(discount))";
+                    cmd.CommandText = "SELECT [Наименование товара]" +
+                        ", SUM(IIF([Скидка] = 0, 1, 0)) AS[0 %]" +
+                        ", SUM(IIF([Скидка] = 0.1, 1, 0)) AS[10 %]" + 
+                        ", SUM(IIF([Скидка] = 15, 1, 0)) AS [15 %]" +
+                        "FROM Таблица2 GROUP BY [Наименование товара]";
                     cmd.ExecuteNonQuery();
 
                     DataTable dt = new DataTable();
                     OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                     da.Fill(dt);
                     dataGridView1.DataSource = dt;
+
+                    dataGridView1.Columns[0].Width = 200;
 
                     connection.Close();
                 }

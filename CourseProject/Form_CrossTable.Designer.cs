@@ -39,7 +39,7 @@
             // radioButton_Program
             // 
             this.radioButton_Program.AutoSize = true;
-            this.radioButton_Program.Location = new System.Drawing.Point(97, 82);
+            this.radioButton_Program.Location = new System.Drawing.Point(201, 83);
             this.radioButton_Program.Name = "radioButton_Program";
             this.radioButton_Program.Size = new System.Drawing.Size(90, 17);
             this.radioButton_Program.TabIndex = 14;
@@ -50,7 +50,7 @@
             // radioButton_SQL
             // 
             this.radioButton_SQL.AutoSize = true;
-            this.radioButton_SQL.Location = new System.Drawing.Point(97, 50);
+            this.radioButton_SQL.Location = new System.Drawing.Point(201, 51);
             this.radioButton_SQL.Name = "radioButton_SQL";
             this.radioButton_SQL.Size = new System.Drawing.Size(113, 17);
             this.radioButton_SQL.TabIndex = 13;
@@ -61,7 +61,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 24);
+            this.label2.Location = new System.Drawing.Point(177, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 12;
@@ -69,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(127, 121);
+            this.button1.Location = new System.Drawing.Point(231, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 23);
             this.button1.TabIndex = 11;
@@ -82,14 +82,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(27, 165);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(404, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(612, 266);
             this.dataGridView1.TabIndex = 15;
             // 
             // Form_CrossTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 444);
+            this.ClientSize = new System.Drawing.Size(662, 458);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.radioButton_Program);
             this.Controls.Add(this.radioButton_SQL);
