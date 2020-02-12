@@ -58,5 +58,68 @@ namespace CourseProject2
                 f2.Show();
             }
         }
+
+        private void задание1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Задание 1")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+
+            if (!isOpen)
+            {
+                Form_Task1 f = new Form_Task1();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void задание2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Задание 1")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+
+            if (!isOpen)
+            {
+                Form_Task2 f = new Form_Task2();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void задание3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Задание 1")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+
+            if (!isOpen)
+            {
+                Form_Task3 f = new Form_Task3();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

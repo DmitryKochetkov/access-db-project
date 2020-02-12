@@ -33,6 +33,9 @@
             this.таблица1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.таблица2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заданияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.задание1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.задание2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.задание3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,22 +62,47 @@
             // таблица1ToolStripMenuItem
             // 
             this.таблица1ToolStripMenuItem.Name = "таблица1ToolStripMenuItem";
-            this.таблица1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.таблица1ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.таблица1ToolStripMenuItem.Text = "Таблица 1";
             this.таблица1ToolStripMenuItem.Click += new System.EventHandler(this.таблица1ToolStripMenuItem_Click);
             // 
             // таблица2ToolStripMenuItem
             // 
             this.таблица2ToolStripMenuItem.Name = "таблица2ToolStripMenuItem";
-            this.таблица2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.таблица2ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.таблица2ToolStripMenuItem.Text = "Таблица 2";
             this.таблица2ToolStripMenuItem.Click += new System.EventHandler(this.таблица2ToolStripMenuItem_Click);
             // 
             // заданияToolStripMenuItem
             // 
+            this.заданияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.задание1ToolStripMenuItem,
+            this.задание2ToolStripMenuItem,
+            this.задание3ToolStripMenuItem});
             this.заданияToolStripMenuItem.Name = "заданияToolStripMenuItem";
             this.заданияToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.заданияToolStripMenuItem.Text = "Задания";
+            // 
+            // задание1ToolStripMenuItem
+            // 
+            this.задание1ToolStripMenuItem.Name = "задание1ToolStripMenuItem";
+            this.задание1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.задание1ToolStripMenuItem.Text = "Задание 1";
+            this.задание1ToolStripMenuItem.Click += new System.EventHandler(this.задание1ToolStripMenuItem_Click);
+            // 
+            // задание2ToolStripMenuItem
+            // 
+            this.задание2ToolStripMenuItem.Name = "задание2ToolStripMenuItem";
+            this.задание2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.задание2ToolStripMenuItem.Text = "Задание 2";
+            this.задание2ToolStripMenuItem.Click += new System.EventHandler(this.задание2ToolStripMenuItem_Click);
+            // 
+            // задание3ToolStripMenuItem
+            // 
+            this.задание3ToolStripMenuItem.Name = "задание3ToolStripMenuItem";
+            this.задание3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.задание3ToolStripMenuItem.Text = "Задание 3";
+            this.задание3ToolStripMenuItem.Click += new System.EventHandler(this.задание3ToolStripMenuItem_Click);
             // 
             // ParentForm
             // 
@@ -100,6 +128,9 @@
         private System.Windows.Forms.ToolStripMenuItem таблица1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem таблица2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заданияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem задание1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem задание2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem задание3ToolStripMenuItem;
     }
 }
 
