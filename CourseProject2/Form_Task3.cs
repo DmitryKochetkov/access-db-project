@@ -63,8 +63,18 @@ namespace CourseProject2
 
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
-                    
+                    int candidate = (int)dataGridView1.Rows[i].Cells[2].Value;
+                    if (!dataGridView1.Columns.Contains(candidate.ToString()))
+                    {
+                        dataGridView1.Columns.Add(candidate.ToString(), candidate.ToString());
+                    }
                 }
+
+                //TODO: add some code here
+
+                dataGridView1.Columns.RemoveAt(2);
+                dataGridView1.Columns.RemoveAt(1);
+                dataGridView1.Columns.RemoveAt(0);
             }
         }
     }
