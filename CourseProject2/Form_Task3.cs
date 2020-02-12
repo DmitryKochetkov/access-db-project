@@ -36,15 +36,8 @@ namespace CourseProject2
                     connection.Open();
                     OleDbCommand cmd = connection.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    /*
-                    cmd.CommandText = "SELECT [Должность]" +
-                        ", SUM(IIF([Должность] = \'Разработчик\', 1, 0)) AS[0 %]" +
-                        ", SUM(IIF([Должность] = 0.1, 1, 0)) AS[10 %]" +
-                        ", SUM(IIF([Должность] = 15, 1, 0)) AS [15 %]" +
-                        "FROM Таблица1.[Номер отдела] * Таблица1.[Должность]";
-                        */
-
-                    cmd.CommandText = "SELECT Таблица1. FROM Таблица1 CROSS JOIN Таблица1";
+                    cmd.CommandText = "TRANSFORM Count(Таблица1.[Фамилия]) AS [Count-Фамилия] SELECT Таблица1.[Должность], Count(Таблица1.[Фамилия]) AS[Итоговое значение Фамилия] " +
+                        "FROM Таблица1 GROUP BY Таблица1.[Должность] PIVOT Таблица1.[Номер отдела];";
                     cmd.ExecuteNonQuery();
 
                     DataTable dt = new DataTable();
