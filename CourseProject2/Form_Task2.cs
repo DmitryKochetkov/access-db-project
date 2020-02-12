@@ -39,7 +39,8 @@ namespace CourseProject2
                     //cmd.CommandText = "SELECT [Номер отдела], [Номер название], [ФИО руководителя], " +
                     //"workers_count AS (SELECT COUNT(DISTINCT '[Номер отдела]') FROM Таблица1) FROM Таблица2";
                     //TODO: sql for each department?
-                    cmd.CommandText = "SELECT COUNT [Номер отдела] FROM (SELECT [Номер отдела] )";
+                    cmd.CommandText = "SELECT First(Таблица1.[Номер отдела]) AS [Номер отдела поле], Count(Таблица1.[Номер отдела]) AS Повторы" +
+                        " FROM Таблица1 GROUP BY Таблица1.[Номер отдела] HAVING(((Count(Таблица1.[Номер отдела])) > 1));";
                     cmd.ExecuteNonQuery();
 
                     DataTable dt = new DataTable();
