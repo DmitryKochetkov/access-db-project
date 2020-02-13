@@ -38,8 +38,8 @@ namespace CourseProject2
                     connection.Open();
                     OleDbCommand cmd = connection.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "TRANSFORM Count(Таблица1.[Фамилия]) AS [Count-Фамилия] SELECT Таблица1.[Должность]" +
-                        "FROM Таблица1 GROUP BY Таблица1.[Должность] PIVOT Таблица1.[Номер отдела];";
+                    cmd.CommandText = "TRANSFORM First(Таблица1.[Фамилия]) AS [First-Фамилия] " +
+                        "SELECT Таблица1.[Должность] FROM Таблица1 GROUP BY Таблица1.[Должность] PIVOT Таблица1.[Номер отдела];";
                     cmd.ExecuteNonQuery();
 
                     DataTable dt = new DataTable();
