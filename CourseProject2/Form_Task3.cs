@@ -22,6 +22,7 @@ namespace CourseProject2
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
+            dataGridView1.Columns.Clear();
 
             if (!radioButton_SQL.Checked && !radioButton_Program.Checked)
             {
@@ -60,6 +61,8 @@ namespace CourseProject2
                 Database1DataSetTableAdapters.Таблица1TableAdapter adapter = new Database1DataSetTableAdapters.Таблица1TableAdapter();
                 adapter.Fill(database1DataSet1.Таблица1);
                 dataGridView1.DataSource = adapter.GetData();
+
+                /*
 
                 Dictionary<string, int[]> crosstab = new Dictionary<string, int[]>(); //string into collection 1 to 8
 
@@ -113,6 +116,44 @@ namespace CourseProject2
                 dataGridView1.Columns.RemoveAt(2);
                 dataGridView1.Columns.RemoveAt(1);
                 dataGridView1.Columns.RemoveAt(0);
+
+                */
+
+                string[][] table;
+
+                dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
+
+                //init new columns
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    int candidate = (int)dataGridView1.Rows[i].Cells[2].Value;
+                    if (!dataGridView1.Columns.Contains(candidate.ToString()))
+                    {
+                        dataGridView1.Columns.Add(candidate.ToString(), candidate.ToString());
+                    }
+                }
+
+                //no repeat
+                HashSet<string> no_repeat = new HashSet<string>();
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    if (no_repeat.Contains(dataGridView1.Rows[i].Cells[3].Value.ToString()))
+                    {
+                        dataGridView1.Rows.RemoveAt(i);
+                        i--;
+                    }
+                    else no_repeat.Add(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                }
+
+                //fill surnames if possible
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    int department = (int)dataGridView1.Rows[i].Cells[2].Value;
+                    if (dataGridView1.Rows[i].Cells[department + 3].Value == null)
+                    {
+                        dataGridView1.Rows[i].Cells[department + 3].Value = dataGridView1.Rows[i].Cells[1].Value;
+                    }
+                }
             }
         }
     }
