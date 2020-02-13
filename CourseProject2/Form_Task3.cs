@@ -154,6 +154,11 @@ namespace CourseProject2
                         dataGridView1.Rows[i].Cells[department + 3].Value = dataGridView1.Rows[i].Cells[1].Value;
                     }
                 }
+
+                //remove extra columns
+                dataGridView1.Columns.RemoveAt(2);
+                dataGridView1.Columns.RemoveAt(1);
+                dataGridView1.Columns.RemoveAt(0);
             }
         }
     }
