@@ -84,6 +84,12 @@ namespace CourseProject2
                 {
                     dataGridView1.Rows[i].Cells[4].Value = counts[(int)dataGridView1.Rows[i].Cells[0].Value];
                 }
+
+                dataGridView1.Columns.RemoveAt(3);
+                dataGridView1.Columns.RemoveAt(2);
+                dataGridView1.Columns.RemoveAt(1);
+
+                dataGridView1.Columns[1].Name = "Количество сотрудников";
             }
         }
     }

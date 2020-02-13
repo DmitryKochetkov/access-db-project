@@ -38,7 +38,7 @@ namespace CourseProject2
                     connection.Open();
                     OleDbCommand cmd = connection.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "TRANSFORM Count(Таблица1.[Фамилия]) AS [Count-Фамилия] SELECT Таблица1.[Должность], Count(Таблица1.[Фамилия]) AS[Итоговое значение Фамилия] " +
+                    cmd.CommandText = "TRANSFORM Count(Таблица1.[Фамилия]) AS [Count-Фамилия] SELECT Таблица1.[Должность]" +
                         "FROM Таблица1 GROUP BY Таблица1.[Должность] PIVOT Таблица1.[Номер отдела];";
                     cmd.ExecuteNonQuery();
 
