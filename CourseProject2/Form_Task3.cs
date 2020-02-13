@@ -31,6 +31,8 @@ namespace CourseProject2
 
             if (radioButton_SQL.Checked)
             {
+                dataGridView1.Columns.Clear();
+
                 try
                 {
                     connection.Open();
@@ -59,8 +61,9 @@ namespace CourseProject2
                 adapter.Fill(database1DataSet1.Таблица1);
                 dataGridView1.DataSource = adapter.GetData();
 
-                //Dictionary<int, int> counts = new Dictionary<int, int>();
+                Dictionary<string, int[]> crosstab = new Dictionary<string, int[]>(); //string into collection 1 to 8
 
+                //init new columns
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
                     int candidate = (int)dataGridView1.Rows[i].Cells[2].Value;
@@ -70,8 +73,43 @@ namespace CourseProject2
                     }
                 }
 
-                //TODO: add some code here
+                //init data for crosstab
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    string job = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                    int department = (int)dataGridView1.Rows[i].Cells[2].Value;
+                    if (!crosstab.Keys.Contains(job))
+                    {
+                        int[] buf = new int[8];
+                        buf[department-1] = 1;
+                        crosstab.Add(job, buf);
+                    }
+                    else crosstab[job][department] += 1;
+                }
 
+
+                //no repeat
+                HashSet<string> no_repeat = new HashSet<string>();
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    if (no_repeat.Contains(dataGridView1.Rows[i].Cells[3].Value.ToString()))
+                    {
+                        dataGridView1.Rows.RemoveAt(i);
+                        i--;
+                    }
+                    else no_repeat.Add(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                }
+
+                //view new data
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    for (int j = 4; j < 4 + 8; j++)
+                    {
+                        dataGridView1.Rows[i].Cells[j].Value = crosstab[dataGridView1.Rows[i].Cells[3].Value.ToString()][j-4].ToString();
+                    }
+                }
+
+                //remove extra columns
                 dataGridView1.Columns.RemoveAt(2);
                 dataGridView1.Columns.RemoveAt(1);
                 dataGridView1.Columns.RemoveAt(0);
